@@ -21,9 +21,10 @@ const forecast = (latitude, longitude, callback) => {
             callback('Unable to find location!', undefined)
         } else {
             callback(undefined,
-                body.current.weather_descriptions[0]+ ', '+
-                body.current.temperature + '°F,' +
-                body.current.precip + ' %'
+                'Now the sky is ' + body.current.weather_descriptions[0]+ '. '+
+                'Actual temperature: ' + body.current.temperature + '°F. ' +
+                'Probability of rain: ' + body.current.precip + ' %. ' +
+                'Timezone: UTC' + body.location.utc_offset
             )
         }
     })
